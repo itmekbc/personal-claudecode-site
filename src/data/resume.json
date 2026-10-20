@@ -1,11 +1,11 @@
 {
   "name": "Kevin Coalwell",
-  "tagline": "Product and brand designer working on interfaces for complex technical systems.",
-  "bio": "I design product UI and design systems, and I have spent the last four years doing it inside a humanoid robotics company. Enough hands-on technical ability to work directly with engineering, enough brand background to make the whole thing hold together.",
+  "tagline": "Brand designer who builds visual systems and scales them across every touchpoint.",
+  "bio": "I build brand systems and make them hold up everywhere they land, and I have spent the last four years doing it inside a humanoid robotics company. Identity, print, environments, film, web, and product UI, all speaking one visual language, with enough technical ability to work directly with engineering.",
   "about": [
-    "I'm a designer who works across product and brand. Most recently that has meant UI and design system work — a six-month overhaul of an AI-powered learning platform for Carnegie Mellon's Tepper School of Business, where I rebuilt the interface around a component library and handed it off to a TypeScript/React team.",
-    "The rest of my time is spent at Agility Robotics, where I've been since 2022, first as Creative Producer and now as Brand Designer. Working on humanoid robots means most of what I design starts as something genuinely difficult to explain. I interview engineers, figure out what actually matters, and turn it into something a person can understand — whether that's an interface, a website, a trade show floor, or a film.",
-    "That technical fluency is the through-line. I read and write enough code to have real conversations with engineers about what's feasible, and I've worked with clients across the public and private sectors including Agility Robotics, Carnegie Mellon, TIME, National Geographic, Active911, and Oregon State University.",
+    "I'm a brand designer who builds visual systems and scales them across every touchpoint. At Agility Robotics, where I've been since 2022, first as Creative Producer and now as Brand Designer, that has meant a top-to-bottom rebrand, a new website, trade show environments, sales collateral, and a cinematic brand film, all held to one consistent identity.",
+    "Working on humanoid robots means most of what I design starts as something genuinely difficult to explain. I interview engineers, figure out what actually matters, and turn it into something a person can understand, then make sure it looks and feels like the same company wherever someone meets it.",
+    "That systems thinking carries into product work. For Carnegie Mellon's Tepper School of Business, I rebuilt an AI-powered learning platform around a design system and handed it off to a TypeScript/React team. I read and write enough code to have real conversations with engineers about what's feasible, and I've worked with clients across the public and private sectors including Agility Robotics, Carnegie Mellon, TIME, National Geographic, Active911, and Oregon State University.",
     "When I'm not working or chasing my kids around, I enjoy strength training, tinkering with my homelab, and chipping away at a Cosmere novel."
   ],
   "contact": {
@@ -99,12 +99,12 @@
   ],
   "skills": [
     {
-      "category": "Product Design",
-      "items": ["Figma", "Design systems", "Component libraries", "Wireframing", "Prototyping", "Design-to-engineering handoff"]
+      "category": "Brand & Content",
+      "items": ["Brand systems", "Visual identity", "Art direction", "Motion graphics", "Photography", "Video production", "3D rendering"]
     },
     {
-      "category": "Brand & Content",
-      "items": ["Visual identity", "Art direction", "Motion graphics", "Photography", "Video production", "3D rendering"]
+      "category": "Product Design",
+      "items": ["Figma", "Design systems", "Component libraries", "Wireframing", "Prototyping", "Design-to-engineering handoff"]
     },
     {
       "category": "Technical",

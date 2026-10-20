@@ -1,0 +1,41 @@
+{
+  "title": "TIME",
+  "description": "Agility brand representative.",
+  "image": "time-01.webp",
+  "thumbnailPosition": "50% 25%",
+  "visible": true,
+  "tags": [
+    "Brand"
+  ],
+  "order": 7,
+  "caseStudy": {
+    "overview": "",
+    "blurb": "I represented Agility at the photoshoot for TIME's Best Inventions of 2024 issue, featuring our humanoid robot, Digit. While on-site in Santa Fe, I provided input on strategies for effectively photographing the robot while staying true to Agility's brand identity. This resulting photo by [Jo Whaley](https://www.jowhaley.com/) was ultimately chosen as the cover for the issue.",
+    "role": "Brand Representative for Agility",
+    "timeline": "2 weeks",
+    "team": "",
+    "objectives": [],
+    "challenge": "",
+    "approach": "",
+    "userExperience": {
+      "description": "",
+      "insights": []
+    },
+    "solution": "",
+    "images": [
+      {
+        "src": "time-01.webp",
+        "caption": "Photo by Jo Whaley for TIME"
+      },
+      {
+        "src": "time-02.webp",
+        "caption": "Photo by Jo Whaley for TIME"
+      }
+    ],
+    "articleLink": {
+      "url": "https://time.com/collections/best-inventions-2024/7094773/agility-robotics-digit/",
+      "label": "Read the TIME article"
+    },
+    "results": []
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "title": "Tradeshow Experience",
+  "description": "Brand + experience design.",
+  "image": "tradeshow-booth-overview.webp",
+  "visible": true,
+  "tags": [
+    "Brand",
+    "Visual"
+  ],
+  "order": 3,
+  "caseStudy": {
+    "heroImage": "tradeshow-booth-overview.webp",
+    "blurb": "Agility's ProMat 2025 booth, the industry debut of Digit Gen 4's beta, designed as one brand system across every touchpoint on the show floor.",
+    "role": "Graphic Designer",
+    "timeline": "3 months",
+    "team": "Graphic Designer (me), Director of Design, CMO, Event Coordinator, Booth Manufacturer",
+    "objectives": [
+      "Debut Digit Gen 4 as credible, working technology.",
+      "Hold the brand together across wall graphics, LED screens, print, and apparel.",
+      "Draw customer interest from across a crowded show floor."
+    ],
+    "contribution": "As Agility's sole graphic designer, I owned the booth's full visual footprint over three months: large-format wall graphics, LED panel content, printed handouts, and team apparel. I led with large-scale renders of Digit, kept interior walls quiet for live demos, and worked directly with the booth manufacturer and event coordinator through production.",
+    "results": [
+      "High foot traffic despite edge-of-floor placement.",
+      "Large-format prints with accurate color and resolution, on par with surrounding booths.",
+      "Team apparel the crew still wears around the office."
+    ],
+    "images": [
+      {
+        "src": "tradeshow-booth-overview.webp",
+        "caption": "Booth overview with suspended Agility signage"
+      },
+      {
+        "src": "tradeshow-booth-digit-bay.webp",
+        "caption": "Digit demo bay with \"Made for work\" backdrop"
+      },
+      {
+        "src": "tradeshow-booth-work-in-motion.webp",
+        "caption": "\"Work in motion\" wall panel"
+      },
+      {
+        "src": "tradeshow-booth-signage.webp",
+        "caption": "Hanging wordmark signage over the booth frame"
+      }
+    ]
+  }
+}

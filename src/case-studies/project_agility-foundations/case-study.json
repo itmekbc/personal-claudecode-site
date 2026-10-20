@@ -1,0 +1,43 @@
+{
+  "title": "Technical Explainer Series",
+  "description": "Brand and creative direction for an educational video series.",
+  "image": "agility-foundations-thumbnail.webp",
+  "thumbnailPosition": "50% 50%",
+  "visible": true,
+  "tags": [
+    "Brand",
+    "Motion"
+  ],
+  "order": 5,
+  "caseStudy": {
+    "blurb": "A three-part public education series explaining how Agility approaches Digit's AI stack, functional safety, and data security.",
+    "role": "Brand Designer",
+    "timeline": "1–3 months",
+    "team": "Brand Designer (me), Study Hall Studio",
+    "teamHtml": "Brand Designer (me), <a href=\"https://www.studyhall.design/\" target=\"_blank\" rel=\"noopener noreferrer\">Study Hall Studio</a>",
+    "videos": [
+      {
+        "url": "https://www.youtube.com/embed/HYlrzihyL1k",
+        "title": "AI Stack"
+      },
+      {
+        "url": "https://www.youtube.com/embed/2dbyg67EtUA",
+        "title": "Functional Safety"
+      },
+      {
+        "url": "https://www.youtube.com/embed/WpGs7DKe8QY",
+        "title": "Data Security"
+      }
+    ],
+    "objectives": [
+      "Make complex technical topics clear to a general audience.",
+      "Position Agility as a thought leader on safe, trustworthy humanoid robots.",
+      "Keep all three episodes in one consistent visual language."
+    ],
+    "contribution": "Working with Study Hall Studio, I led creative direction and brand consistency for the series' graphics: animations, lower thirds, transitions, on-screen graphics, and data visualization. I made sure every episode carried Agility's visual identity.",
+    "results": [
+      "Three episodes published as a cohesive series on Agility's channels.",
+      "A shared graphics system for animation, type, and data visualization across every episode."
+    ]
+  }
+}

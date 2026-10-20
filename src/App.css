@@ -83,7 +83,7 @@
   background: none;
   border: 1px solid transparent;
   color: var(--text-secondary);
-  cursor: pointer;
+  cursor: var(--cursor-dot-hover);
   transition: color var(--duration-base), border-color var(--duration-base);
 }
 
@@ -449,7 +449,7 @@
   background-color: transparent;
   border: 1px solid var(--border-interactive);
   color: var(--text-secondary);
-  cursor: pointer;
+  cursor: var(--cursor-dot-hover);
   transition: background-color var(--duration-base), color var(--duration-base),
     border-color var(--duration-base);
 }
@@ -484,7 +484,7 @@
   background: none;
   border: none;
   color: var(--text-secondary);
-  cursor: pointer;
+  cursor: var(--cursor-dot-hover);
   transition: color var(--duration-base), background-color var(--duration-base);
 }
 
@@ -547,16 +547,44 @@
   flex-direction: row;
 }
 
-/* The accent ring sits OUTSIDE the card rather than replacing its border.
-   Card thumbnails can have white backgrounds, and the accent clears only
-   1.6:1 against white — an accent border would have gone soft along the
-   image edge. Outside, it always meets the dark page, so the whole ring
-   reads at full contrast. box-shadow doesn't affect layout, so the 2px
-   costs nothing against the 12px grid gap. */
-.project-grid-card:hover,
-.project-card:hover {
-  border-color: var(--border-subtle);
-  box-shadow: 0 0 0 2px var(--accent);
+/* Hover: the thumbnail fades back and an arrow slides in beside the
+   title. */
+
+.project-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.project-grid-image img,
+.project-image img {
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.project-arrow {
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .project-grid-card:hover .project-grid-image img,
+  .project-card:hover .project-image img {
+    opacity: 0.75;
+  }
+
+  .project-grid-card:hover .project-arrow,
+  .project-card:hover .project-arrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-grid-card:focus-visible .project-arrow,
+.project-card:focus-visible .project-arrow {
+  opacity: 1;
+  transform: none;
 }
 
 .project-grid-image,
@@ -751,8 +779,13 @@
   line-height: var(--type-body-large-line-height);
   letter-spacing: var(--type-body-large-letter-spacing);
   color: var(--text-primary);
-  max-width: var(--measure-narrow);
   padding-top: var(--space-8);
+}
+
+/* Gallery layouts have no meta row beneath the blurb to space it off. */
+.case-study-blurb + .bento-grid,
+.case-study-blurb + .gallery-group {
+  margin-top: var(--space-10);
 }
 
 .case-study-blurb a {
@@ -771,7 +804,6 @@
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: var(--space-6);
   padding: var(--space-6) 0;
-  border-bottom: 1px solid var(--border-subtle);
   margin-bottom: var(--space-10);
 }
 
@@ -801,6 +833,16 @@
 .meta-item a:hover {
   color: var(--accent);
   border-color: var(--accent);
+}
+
+/* Gallery layouts have no blurb or meta row above the contribution section. */
+.case-study-body--gallery {
+  padding-top: var(--space-8);
+}
+
+/* Video series: one titled embed per episode. */
+.case-study-video-item .case-study-video {
+  margin-bottom: var(--space-10);
 }
 
 .case-study-video {
@@ -854,7 +896,6 @@
   line-height: var(--type-body-large-line-height);
   letter-spacing: var(--type-body-medium-letter-spacing);
   color: var(--text-secondary);
-  max-width: var(--measure-narrow);
   margin-bottom: var(--space-4);
 }
 
@@ -875,7 +916,6 @@
 
 .case-study-section ul {
   padding-left: var(--space-5);
-  max-width: var(--measure-narrow);
 }
 
 .case-study-section li {
@@ -890,7 +930,6 @@
 .results-list {
   list-style: none;
   padding-left: 0;
-  max-width: var(--measure-narrow);
 }
 
 .objectives-list li,
@@ -916,7 +955,6 @@
   padding: var(--space-6);
   background-color: var(--surface-1);
   border-left: 2px solid var(--accent);
-  max-width: var(--measure-narrow);
 }
 
 .insights h3 {
@@ -981,7 +1019,7 @@
 
 .bento-item {
   overflow: hidden;
-  cursor: pointer;
+  cursor: var(--cursor-dot-hover);
   border: none;
   padding: 0;
   background-color: var(--image-bg);
@@ -1033,10 +1071,12 @@
   gap: var(--space-3);
 }
 
+/* Collateral pages are US Letter (8.5 × 11). Tiles take that shape and the
+   page is contained rather than cropped, so nothing gets cut off. */
 .carousel-item {
-  height: 240px;
+  aspect-ratio: 8.5 / 11;
   overflow: hidden;
-  cursor: pointer;
+  cursor: var(--cursor-dot-hover);
   border: none;
   padding: 0;
   background-color: var(--image-bg);
@@ -1046,7 +1086,7 @@
 .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: opacity var(--duration-base) ease;
 }
@@ -1067,7 +1107,7 @@
   height: 36px;
   border: 1px solid var(--border-interactive);
   background: none;
-  cursor: pointer;
+  cursor: var(--cursor-dot-hover);
   color: var(--text-primary);
   display: flex;
   align-items: center;
@@ -1083,7 +1123,7 @@
   color: var(--text-secondary);
   border-color: var(--border-subtle);
   opacity: 0.6;
-  cursor: default;
+  cursor: var(--cursor-dot);
 }
 
 .carousel-arrow:not(:disabled):hover {
@@ -1160,7 +1200,7 @@
   background: transparent;
   border: 1px solid transparent;
   color: var(--lightbox-fg);
-  cursor: pointer;
+  cursor: var(--cursor-dot-hover);
   transition: background-color var(--duration-base), color var(--duration-base),
     border-color var(--duration-base);
   z-index: 1001;
@@ -1506,10 +1546,6 @@
     grid-column: span 1;
   }
 
-  .carousel-item {
-    height: 220px;
-  }
-
   .lightbox-overlay {
     padding: var(--space-12) var(--space-4);
   }
@@ -1587,7 +1623,4 @@
     font-size: var(--type-body-small-size);
   }
 
-  .carousel-item {
-    height: 180px;
-  }
 }

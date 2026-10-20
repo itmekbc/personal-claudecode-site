@@ -25,7 +25,7 @@ function About() {
   usePageMeta({
     title: 'About',
     description:
-      'Kevin Coalwell is a product and brand designer working on interfaces for complex technical systems, currently at Agility Robotics.'
+      'Kevin Coalwell is a brand designer who builds visual systems and scales them across every touchpoint, currently at Agility Robotics.'
   })
 
   return (

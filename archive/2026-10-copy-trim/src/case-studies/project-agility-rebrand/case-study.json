@@ -1,0 +1,66 @@
+{
+  "title": "Agility Rebrand",
+  "description": "Full stack brand refresh.",
+  "image": "agility-rebrand-thumbnail.webp",
+  "thumbnailPosition": "50%",
+  "visible": true,
+  "tags": [
+    "Brand"
+  ],
+  "order": 3,
+  "caseStudy": {
+    "heroImage": "agility-rebrand-08.webp",
+    "overview": "",
+    "blurb": "Top to bottom refresh of the Agility Robotics brand identity. As the internal designer on the visual identity team, I worked closely with our Visual Brand Director to define the new visual language and strategy — a new proprietary typeface, a rebuilt logo and wordmark system, a core color palette, and the application of all of it across apparel, print, signage, and product photography.",
+    "role": "Brand Designer (Internal Team)",
+    "timeline": "6 months",
+    "team": "Visual + Verbal Identity Brand Directors (External), Brand Designer (Me), C-Suite (Approval)",
+    "objectives": [],
+    "challenge": "",
+    "approach": "",
+    "userExperience": {
+      "description": "",
+      "insights": []
+    },
+    "solution": "",
+    "images": [
+      {
+        "src": "agility-rebrand-01.webp",
+        "caption": "Typography and iconography system built on Diatype"
+      },
+      {
+        "src": "agility-rebrand-02.webp",
+        "caption": "Logo construction and wordmark grid"
+      },
+      {
+        "src": "agility-rebrand-03.webp",
+        "caption": "Core color palette"
+      },
+      {
+        "src": "agility-rebrand-04.webp",
+        "caption": "Branded apparel"
+      },
+      {
+        "src": "agility-rebrand-05.webp",
+        "caption": "Business card system"
+      },
+      {
+        "src": "agility-rebrand-06.webp",
+        "caption": "Branded tote bag"
+      },
+      {
+        "src": "agility-rebrand-07.webp",
+        "caption": "Wayfinding and facility signage"
+      },
+      {
+        "src": "agility-rebrand-09.webp",
+        "caption": "Product photography for the refreshed brand"
+      },
+      {
+        "src": "agility-rebrand-10.webp",
+        "caption": "Hardware detail photography"
+      }
+    ],
+    "results": []
+  }
+}

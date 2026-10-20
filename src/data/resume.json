@@ -95,6 +95,11 @@
       "institution": "Oregon State University",
       "start": "2025",
       "end": "2025"
+    },
+    {
+      "degree": "Certificate, UX Design",
+      "institution": "Google",
+      "end": "In Progress"
     }
   ],
   "skills": [
@@ -123,7 +128,10 @@
     { "name": "Orange Media Network", "url": "https://orangemedianetwork.com/" },
     { "name": "Daxbot", "url": "https://daxbot.com" },
     { "name": "Active911", "url": "https://active911.com" },
-    { "name": "Carnegie Mellon University", "url": "https://www.cmu.edu/" }
+    { "name": "Carnegie Mellon University", "url": "https://www.cmu.edu/" },
+    { "name": "Study Hall", "url": "https://www.studyhall.design"},
+    { "name": "Open Range", "url": "https://www.openrangecrew.com/"},
+    { "name": "Arlington Peak", "url": "https://www.arlingtonpeak.co/work"}
   ],
   "awards": [
     {

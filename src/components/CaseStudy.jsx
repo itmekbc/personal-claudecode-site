@@ -289,6 +289,11 @@ function CaseStudy() {
 
   const ux = caseStudy.userExperience || {}
 
+  // A single `videoUrl`, or a `videos` list of { url, title } for a series.
+  const videos = Array.isArray(caseStudy.videos)
+    ? caseStudy.videos.filter(v => v && v.url)
+    : caseStudy.videoUrl ? [{ url: caseStudy.videoUrl }] : []
+
   // articleLink is authored either as a plain URL string or as { url, label }.
   const articleLink = typeof caseStudy.articleLink === 'string'
     ? { url: caseStudy.articleLink, label: caseStudy.articleLinkLabel || 'Read the article' }
@@ -297,6 +302,7 @@ function CaseStudy() {
       : null
   const hasNarrative =
     (caseStudy.overview && caseStudy.overview.trim()) ||
+    (caseStudy.contribution && caseStudy.contribution.trim()) ||
     (caseStudy.challenge && caseStudy.challenge.trim()) ||
     (caseStudy.approach && caseStudy.approach.trim()) ||
     (caseStudy.solution && caseStudy.solution.trim()) ||
@@ -305,6 +311,12 @@ function CaseStudy() {
     hasItems(ux.insights) ||
     hasItems(caseStudy.results) ||
     Boolean(articleLink?.url)
+
+  const blurb = caseStudy.blurb && (
+    <div className="case-study-blurb fade-in" style={{ animationDelay: '0.2s' }}>
+      <ReactMarkdown>{caseStudy.blurb}</ReactMarkdown>
+    </div>
+  )
 
   const renderBentoGrid = (startDelay = 0) =>
     galleryLayout && (
@@ -353,69 +365,76 @@ function CaseStudy() {
           openLightbox: setLightboxIndex
         })
       ) : project.layout === 'multi-gallery' ? (
-        galleryGroups && (() => {
-          let offset = 0
-          return galleryGroups.map((group, groupIdx) => {
-            const groupOffset = offset
-            offset += group.images.length
-            const maxStart = Math.max(0, group.images.length - perView)
-            const carouselStart = Math.min(getCarouselIndex(group.label), maxStart)
-            const canGoPrev = carouselStart > 0
-            const canGoNext = carouselStart < maxStart
-            const visibleImages = group.images.slice(carouselStart, carouselStart + perView)
-            return (
-              <div key={group.label} className="gallery-group">
-                <h2 className="gallery-group-label fade-in" style={{ animationDelay: `${groupIdx * 0.08}s` }}>{group.label}</h2>
-                <div className="carousel">
-                  <div className="carousel-track" style={{ '--carousel-columns': perView }}>
-                    {visibleImages.map((image, i) => (
-                      <button
-                        key={carouselStart + i}
-                        type="button"
-                        className="carousel-item fade-in"
-                        onClick={() => setLightboxIndex(groupOffset + carouselStart + i)}
-                        aria-label={`View ${group.label} image ${carouselStart + i + 1} of ${group.images.length}`}
-                      >
-                        <img src={image.src} alt="" loading="lazy" decoding="async" />
-                      </button>
-                    ))}
-                  </div>
-                  {group.images.length > perView && (
-                    <div className="carousel-nav">
-                      <button
-                        type="button"
-                        className="carousel-arrow"
-                        onClick={() => canGoPrev && setCarouselGroupIndex(group.label, carouselStart - 1)}
-                        disabled={!canGoPrev}
-                        aria-label={`Previous ${group.label} image`}
-                      >
-                        <Chevron direction="prev" />
-                      </button>
-                      <button
-                        type="button"
-                        className="carousel-arrow"
-                        onClick={() => canGoNext && setCarouselGroupIndex(group.label, carouselStart + 1)}
-                        disabled={!canGoNext}
-                        aria-label={`Next ${group.label} image`}
-                      >
-                        <Chevron direction="next" />
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )
-          })
-        })()
-      ) : project.layout === 'gallery' ? (
-        renderBentoGrid()
-      ) : (
         <>
-          {caseStudy.blurb && (
-            <div className="case-study-blurb fade-in" style={{ animationDelay: '0.2s' }}>
-              <ReactMarkdown>{caseStudy.blurb}</ReactMarkdown>
+          {blurb}
+          {galleryGroups && (() => {
+            let offset = 0
+            return galleryGroups.map((group, groupIdx) => {
+              const groupOffset = offset
+              offset += group.images.length
+              const maxStart = Math.max(0, group.images.length - perView)
+              const carouselStart = Math.min(getCarouselIndex(group.label), maxStart)
+              const canGoPrev = carouselStart > 0
+              const canGoNext = carouselStart < maxStart
+              const visibleImages = group.images.slice(carouselStart, carouselStart + perView)
+              return (
+                <div key={group.label} className="gallery-group">
+                  <h2 className="gallery-group-label fade-in" style={{ animationDelay: `${groupIdx * 0.08}s` }}>{group.label}</h2>
+                  <div className="carousel">
+                    <div className="carousel-track" style={{ '--carousel-columns': perView }}>
+                      {visibleImages.map((image, i) => (
+                        <button
+                          key={carouselStart + i}
+                          type="button"
+                          className="carousel-item fade-in"
+                          onClick={() => setLightboxIndex(groupOffset + carouselStart + i)}
+                          aria-label={`View ${group.label} image ${carouselStart + i + 1} of ${group.images.length}`}
+                        >
+                          <img src={image.src} alt="" loading="lazy" decoding="async" />
+                        </button>
+                      ))}
+                    </div>
+                    {group.images.length > perView && (
+                      <div className="carousel-nav">
+                        <button
+                          type="button"
+                          className="carousel-arrow"
+                          onClick={() => canGoPrev && setCarouselGroupIndex(group.label, carouselStart - 1)}
+                          disabled={!canGoPrev}
+                          aria-label={`Previous ${group.label} image`}
+                        >
+                          <Chevron direction="prev" />
+                        </button>
+                        <button
+                          type="button"
+                          className="carousel-arrow"
+                          onClick={() => canGoNext && setCarouselGroupIndex(group.label, carouselStart + 1)}
+                          disabled={!canGoNext}
+                          aria-label={`Next ${group.label} image`}
+                        >
+                          <Chevron direction="next" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )
+            })
+          })()}
+        </>
+      ) : project.layout === 'gallery' ? (
+        <>
+          {blurb}
+          {caseStudy.contribution && caseStudy.contribution.trim() && (
+            <div className="case-study-body case-study-body--gallery fade-in" style={{ animationDelay: '0.2s' }}>
+              <Section title="My Contribution" text={caseStudy.contribution} />
             </div>
           )}
+          {renderBentoGrid(blurb || caseStudy.contribution ? 0.3 : 0)}
+        </>
+      ) : (
+        <>
+          {blurb}
 
           {hasMetaContent && (
             <div className="case-study-meta fade-in" style={{ animationDelay: '0.28s' }}>
@@ -443,17 +462,6 @@ function CaseStudy() {
             </div>
           )}
 
-          {caseStudy.videoUrl && (
-            <div className="case-study-video fade-in" style={{ animationDelay: '0.35s' }}>
-              <iframe
-                src={caseStudy.videoUrl}
-                title={`${title} — video`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          )}
-
           {/* -------------------------------------------------------------- */}
           {/* Narrative. These fields existed in the data but nothing         */}
           {/* rendered them, so every case study read as an image gallery.    */}
@@ -471,6 +479,8 @@ function CaseStudy() {
                   </ul>
                 </Section>
               )}
+
+              <Section title="My Contribution" text={caseStudy.contribution} />
 
               <Section title="Challenge" text={caseStudy.challenge} />
               <Section title="Approach" text={caseStudy.approach} />
@@ -514,6 +524,20 @@ function CaseStudy() {
               )}
             </div>
           )}
+
+          {videos.map((video) => (
+            <div key={video.url} className="case-study-video-item fade-in" style={{ animationDelay: '0.45s' }}>
+              {video.title && <h2 className="gallery-group-label">{video.title}</h2>}
+              <div className="case-study-video">
+                <iframe
+                  src={video.url}
+                  title={`${video.title || title} — video`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          ))}
 
           {renderBentoGrid(0.45)}
         </>

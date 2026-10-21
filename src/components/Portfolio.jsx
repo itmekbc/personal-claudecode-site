@@ -7,7 +7,7 @@ const projects = loadCaseStudies()
 
 // Filters are ordered deliberately rather than alphabetically, so the work
 // that leads the positioning sits first.
-const TAG_ORDER = ['Product', 'Brand', 'Visual', 'Motion']
+const TAG_ORDER = ['Brand', 'Product', 'Visual', 'Motion']
 
 // Warm a single case study's images when the visitor signals intent by
 // hovering or focusing its card. Replaces an unconditional prefetch of every
@@ -47,7 +47,13 @@ function ProjectCard({ project, variant, index, onPrefetch }) {
         />
       </div>
       <div className={isGrid ? 'project-grid-info' : 'project-info'}>
-        <h3 className="project-title">{project.title}</h3>
+        <h3 className="project-title">
+          {project.title}
+          <svg className="project-arrow" width="14" height="14" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polyline points="268,112 412,256 268,400" stroke="currentColor" strokeWidth="48" strokeLinecap="square" strokeLinejoin="miter"/>
+            <line x1="392" y1="256" x2="100" y2="256" stroke="currentColor" strokeWidth="48" strokeLinecap="square"/>
+          </svg>
+        </h3>
         <p className="project-description">{project.description}</p>
         <div className="project-tags">
           {project.tags.map((tag) => (
@@ -63,7 +69,7 @@ function Portfolio() {
   usePageMeta({
     title: 'Portfolio',
     description:
-      'Selected product, brand, and visual design work by Kevin Coalwell, including UI and design system work for Carnegie Mellon and Agility Robotics.'
+      'Selected brand, product, and visual design work by Kevin Coalwell, including brand systems for Agility Robotics and design system work for Carnegie Mellon.'
   })
 
   const [activeFilter, setActiveFilter] = useState('All')

@@ -127,7 +127,6 @@
   --sidebar-width: 340px;
   --navbar-height: 60px;
   --measure: 68ch;          /* comfortable line length for body prose */
-  --measure-narrow: 62ch;   /* case-study prose */
 
   /* ---------------------------------------------------------------------
      Motion
@@ -271,6 +270,32 @@
   --accent-dim: rgba(67, 224, 219, 0.16);
 
   --scrim: rgba(10, 10, 10, 0.75);
+}
+
+/* Cursor: a white dot everywhere, slightly larger over anything clickable.
+   The faint dark edge keeps it visible in the light theme. */
+:root {
+  --cursor-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='5' fill='white' stroke='rgba(0,0,0,0.35)'/%3E%3C/svg%3E") 8 8, auto;
+  --cursor-dot-hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='8' fill='white' stroke='rgba(0,0,0,0.35)'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+*,
+*::before,
+*::after {
+  cursor: var(--cursor-dot);
+}
+
+a,
+button,
+[role="button"],
+label,
+summary,
+select {
+  cursor: var(--cursor-dot-hover);
+}
+
+button:disabled {
+  cursor: var(--cursor-dot);
 }
 
 body {

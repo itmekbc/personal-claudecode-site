@@ -10,7 +10,11 @@ function ClientList() {
         <li key={client.name}>
           {client.url ? (
             <a href={client.url} target="_blank" rel="noopener noreferrer">
-              {client.name}
+              <span className="client-name">{client.name}</span>
+              <svg className="client-arrow" width="12" height="12" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polyline points="268,112 412,256 268,400" stroke="currentColor" strokeWidth="48" strokeLinecap="square" strokeLinejoin="miter"/>
+                <line x1="392" y1="256" x2="100" y2="256" stroke="currentColor" strokeWidth="48" strokeLinecap="square"/>
+              </svg>
             </a>
           ) : (
             client.name
@@ -25,7 +29,7 @@ function About() {
   usePageMeta({
     title: 'About',
     description:
-      'Kevin Coalwell is a product and brand designer working on interfaces for complex technical systems, currently at Agility Robotics.'
+      'Kevin Coalwell is a brand designer who builds visual systems and scales them across every touchpoint, currently at Agility Robotics.'
   })
 
   return (

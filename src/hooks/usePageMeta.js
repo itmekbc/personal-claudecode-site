@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const SITE_NAME = 'Kevin Coalwell'
 const DEFAULT_DESCRIPTION =
-  'Product and brand designer working on interfaces for complex technical systems.'
+  'Brand designer who builds visual systems and scales them across every touchpoint.'
 
 function setMeta(selector, attr, value, content) {
   let el = document.head.querySelector(selector)
